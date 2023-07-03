@@ -1,4 +1,4 @@
-function [W] = similarity(X, K, sigma)
+function [W, Idx1] = similarity(X, K, sigma)
 
 %SIMILARITY Calculates pairwise distances between a set of points using the
 %given formula and build the adj matrix.
@@ -23,12 +23,16 @@ W = sparse([]);
 [N,~]=size(X);
 
 for i=1:N
+    %Idx1 contains the indexes of the nearest points
+    %D1 contains the euclidean distances between point X(i,:) and the others points in X 
     [Idx1, D1] = knnsearch(X, X(i,:), 'K', K, 'Distance', 'euclidean');
+
     %delete the reference with the point X(i,:) itself
     Idx1(1)=[];
     D1(1)=[];
 
     D1 = exp(-(D1.^2)/2*sigma^2);
+    %We put in the i-row of W, the distances in D1
     W(i,Idx1) = D1;
 end
 
