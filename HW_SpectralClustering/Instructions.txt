@@ -1,0 +1,18 @@
+REQUIREMENTS
+	- MATLAB R2023a (https://it.mathworks.com/products/new_products/latest_features.html?requestedDomain=)
+
+INSTRUCTIONS
+
+1. Upload the MATLAB project by using the .prj file inside the main folder
+
+2. Download the additional package called 'Statistics and Machine Learning' from the MATLAB package manager
+
+4. The files:
+	- main.m
+is the entry point of the code: launching this script will display the graphs in the report.
+
+5. The file:
+	- find_best_clusters.m
+    - similarity.m
+are two functions used respectively to evaluate the best cluster on a dataset using a fixed range of k clusters, and to calculate the adjacency matrix based on the pairwise distances
+between the points of a matrix X, considering only the k closest neighbours for each point.
