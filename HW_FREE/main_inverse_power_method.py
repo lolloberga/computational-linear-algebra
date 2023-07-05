@@ -22,7 +22,7 @@ def main():
 
     dataset = circle_df
 
-    fig, ax = plt.subplots(len(k_values), 2, figsize=(12, 5))
+    fig, ax = plt.subplots(2, len(k_values), figsize=(8, 8))
     fig.subplots_adjust(left=None, bottom=None, right=None,
                         top=0.82, wspace=0.40, hspace=None)
 

@@ -25,7 +25,7 @@ def main():
 
     datasets = [circle_df, spiral_df]
 
-    fig, ax = plt.subplots(len(k_values), len(datasets), figsize=(12, 6))
+    fig, ax = plt.subplots(len(datasets), len(k_values), figsize=(12, 6))
     fig.subplots_adjust(left=None, bottom=None, right=None,
                         top=0.82, wspace=0.40, hspace=None)
 
@@ -41,22 +41,23 @@ def main():
             theoric_eigenvalues = linalg.eigs(laplacian_matrix, which='SM', k=10)[0]
             theoric_eigenvalues = np.sort(theoric_eigenvalues)
 
-            ax[j, i].plot(theoric_eigenvalues, '-o', label="Theoretical eigenvalues")
-            ax[j, i].legend()
-            ax[j, i].plot(np.abs(eigenvalues), '--+', label='Deflation power method')
+            ax[i, j].plot(theoric_eigenvalues, '-o', label="Theoretical eigenvalues")
+            ax[i, j].plot(np.abs(eigenvalues), '--+', label='Deflation power method')
 
-            ax[j, i].set_ylabel(r'|$\lambda_i$|', fontweight='bold', fontsize=18)
+            ax[i, j].set_ylabel(r'|$\lambda_i$|', fontweight='bold', fontsize=15)
+            ax[i, j].set_title(f'K = {k}', fontweight='bold', fontsize=15)
 
-            ax[j, i].legend()
-            ax[j, i].set_xticks([s for s in range(10)])
-            ax[j, i].set_xticklabels([f'$\lambda_{s + 1}$' for s in range(10)], fontsize=12)
+            ax[i, j].legend()
+            ax[i, j].grid()
+            ax[i, j].set_xticks([s for s in range(10)])
+            ax[i, j].set_xticklabels([f'$\lambda_{s + 1}$' for s in range(10)], fontsize=10)
 
     fig.suptitle('Deflation Power Method Assessment', fontweight='bold', fontsize=18)
+    fig.tight_layout()
 
     path_to_fig = os.path.join('figs', r'deflation_method_' + str(time.time()) + '.png')
     fig.savefig(path_to_fig, dpi=600)
 
-    fig.tight_layout()
     plt.show()
 
 
