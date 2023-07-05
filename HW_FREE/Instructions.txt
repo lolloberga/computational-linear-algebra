@@ -24,15 +24,8 @@ INSTRUCTIONS
 	From the list of available interpreters, select the virtual environment you created in step 1. This will ensure that the project uses the correct Python version and libraries. If you do not see it in the list, navigate to the folder where you installed the virtual environment, then "bin", then select "python" as the interpreter.
 
 4. The files:
-	- deflation_method.py
-	- inverse_power_method.py
-are the implementation of the functions, which can be inspected for clarification. Inside each, you will find also a version of the same function but named with the extension "_test", which are used to test the function and they have slightly different output. Note that if you run these, you wont't get any output.
+	- main_deflation_method.py
+	- main_inverse_power_method.py
+are the entry point of the execution, you can run the program in this way: "python main_deflation_method.py" or using the inverse power method. It is possible to see the output of each execution in the "figs" directory.
 
 5. The file "utils.py" contains some useful functions that have been used to generate sparse matrices for the testing of the deflation_method and inverse_power_method.
-
-6. The files:
-	- deflation_method_test.py
-	- inverse_power_method_test.py
-when runned, output in the folder "figs" the graphs used in the report, with an extension indicating the timestamp. I left the folder "figs" empty, so when you will run these 2 files you will get the figures there.
-
-Feel free to explore the code and modify it according to your needs. If you have any questions or need further clarification, please reach out.
